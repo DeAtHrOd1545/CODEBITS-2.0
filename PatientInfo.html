@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="PAtient.css">
+     
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+   <title>Responsive Registration Form</title>
+</head>
+<body>
+    <div class="container">
+        <header>Registration</header>
+
+        <form id="formData">
+            <div class="form first">
+                <div class="details personal">
+                    <span class="title">Personal Details</span>
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Full Name</label>
+                            <input id="name" type="text" placeholder="Enter name" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Date of Birth</label>
+                            <input id="birthdate" type="date" placeholder="Enter birth date" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Weight</label>
+                            <input id="weight" type="number" placeholder="Enter Weight" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Height</label>
+                            <input id="height" type="number" placeholder="Enter  Height" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Gender</label>
+                            <select id="gender" required>
+                                <option id="gender" disabled selected>Select gender</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                                <option>Others</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Address</label>
+                            <input id="address" type="text" placeholder="Enter Address" required>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="details">
+                    <span class="title">Medical History</span>
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Significant Medical History</label>
+                            <input id="medicalhistory" type="text" placeholder="Enter Medical History" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>List any Medical Problems</label>
+                            <input id="medicalproblem" type="number" placeholder="Enter Medical Problems" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>List any medication taken regularly</label>
+                            <input id="meditationtaken" type="text" placeholder="Enter medication taken regularly" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>List any allergies</label>
+                            <input id="allergies" type="text" placeholder="Enter any allergies" required>
+                        </div>
+                    
+                    <button type="submit" id="submit">
+                        <span class="btnText">Submit</span>
+                    </button>
+                </div> 
+            </div>
+        </form>
+    </div>
+    <!-- <script type="module">
+        // Import Firebase modules
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
+
+        // Your Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDg_qXiOt23OjejeLIhenx7sFLs7sCYxUQ",
+            authDomain: "medico-service.firebaseapp.com",
+            projectId: "medico-service",
+            storageBucket: "medico-service.appspot.com",
+            messagingSenderId: "666727607061",
+            appId: "1:666727607061:web:7711671e95bd6aa737d71c"
+
+        };
+
+        // Initialize Firebase
+             firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+
+        document.getElementById("formData").addEventListener('submit', function(e){
+            e.preventDefault();
+
+            // Collect form data
+            const formData = {
+                Name: document.getElementById('name').value,
+                Birthdate: document.getElementById('birthdate').value,
+                Weight: document.getElementById('weight').value,
+                Height: document.getElementById('height').value,
+                Gender: document.getElementById('gender').value,
+                Address: document.getElementById('address').value,
+                MedicalHistory: document.getElementById('medicalhistory').value,
+                MedicalProblem: document.getElementById('medicalproblem').value,
+                MeditationTaken: document.getElementById('meditationtaken').value,
+                Allergies: document.getElementById('allergies').value
+            };
+
+            console.log(formData)
+
+            // Save data to Firebase
+            set(ref(db, 'user/' + document.getElementById("username").value), formData)
+                .then(() => {
+                    alert('Form data saved successfully!');
+                    window.location.href = "Mainpage.html";
+                })
+                .catch((error) => {
+                    console.error("Error saving data: ", error);
+                    alert('Error saving form data. Please try again.');
+                });
+        }); 
+    </script> --> 
+    <script>
+          document.addEventListener('DOMContentLoaded', function () {
+ 
+ document.getElementById('formData').addEventListener('submit', function (event) {
+   event.preventDefault(); 
+
+ 
+   var Name =  document.getElementById('name').value;
+   var Birthdate = document.getElementById('birthdate').value;
+   var Weight = document.getElementById('weight').value;
+   var Height = document.getElementById('height').value;
+   var Gender = document.getElementById('gender').value;
+   var Address = document.getElementById('address').value;
+   var MedicalHistory = document.getElementById('medicalhistory').value;
+   var MedicalProblem = document.getElementById('medicalproblem').value;
+   var MeditationTaken = document.getElementById('meditationtaken').value;
+   var Allergies = document.getElementById('allergies').value;
+   
+   if (Name && Birthdate && Weight && Height && Gender && Address && MedicalHistory && MedicalProblem && MeditationTaken && Allergies ) {
+    alert('Form data saved successfully!');
+     window.location.href = "Mainpage.html"; 
+   } else {
+     
+     document.getElementById('signupMessage').innerText = 'Please fill out all fields';
+   }
+ });
+});
+    </script>
+</body>
+</html>
+
